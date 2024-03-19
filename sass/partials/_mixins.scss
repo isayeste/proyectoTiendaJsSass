@@ -1,0 +1,159 @@
+@import '_variables';
+
+@mixin ponerEnCentro{
+    justify-items: center;
+    align-items: center;
+}
+
+@mixin enlacesConHover{
+    a{
+        color: $blancoTranslucido;
+        text-decoration: none;
+    }
+    a:hover{
+        color: $azul;
+    }
+}
+@mixin estiloLetraMenu{
+    font-size: 1em;
+    padding-right: 20px;
+}
+
+@mixin distribucionCesta{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 50px;
+    @media screen and (max-width: 850px){
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+
+@mixin botonConHover{
+    input[type=button]{
+        @include estiloLetraMenu;
+        background-color: $azulTranslucido;
+        color: $blancoTranslucido;
+        border: 1px solid $azulTranslucido;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    input[type=button]:hover{
+        background-color: $azul1;
+        transform: scale(1.01);
+        box-shadow: 4px 5px 17px 0px $azul2;
+    }
+    .boton{
+        @include estiloLetraMenu;
+        background-color: $azulTranslucido;
+        color: $blancoTranslucido;
+        border: 1px solid $azulTranslucido;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+    .boton:hover{
+        background-color: $azul1;
+        transform: scale(1.01);
+        box-shadow: 4px 5px 17px 0px $azul2;
+    }
+    a{
+        @include estiloLetraMenu;
+        background-color: $azulTranslucido;
+        color: $blancoTranslucido;
+        border: 1px solid $azulTranslucido;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        text-decoration: none;
+        display: grid;
+        @include ponerEnCentro();
+        text-align: center;
+    }
+    a:hover{
+        background-color: $azul1;
+        transform: scale(1.01);
+        box-shadow: 4px 5px 17px 0px $azul2;
+    }
+}
+
+@mixin inputEstilizado{
+    background-color: $blancoTranslucido;
+    border: none;
+    color: $azul3;
+}
+
+@mixin colorCard{
+    background: $azulTranslucido;
+    background: linear-gradient(131deg, $blancoTranslucido 0%, $transparente 55%, $azul3 100%);
+}
+
+@mixin resumenPedido{
+    .resumenPedido{
+        color: $azul3;
+        display: grid;
+        margin: 50px;
+        justify-items: start;
+        align-items: start;
+        
+        
+        .interiorResumenPedido{
+            padding: 50px;
+            @include bordeAnimado();
+            @include colorCard();
+            border-radius: 5px;
+            .divBoton{
+                .boton{
+                    width: 100%;
+                }
+            }
+        }  
+    }
+}
+
+@mixin bordeAnimado{
+    border: 3px solid;
+    animation: intercambioColores 5s infinite linear;
+    transition: filter 0.5s ease;
+    @keyframes intercambioColores {
+        0% {
+          border-image: linear-gradient(to bottom, $azul, $azul2, $azul3, $blancoTranslucido) 1;
+        }
+        25% {
+            border-image: linear-gradient(to bottom, $blancoTranslucido, $azul, $azul2, $azul3) 1;
+        }
+        50% {
+          border-image: linear-gradient(to bottom, $azul3, $blancoTranslucido, $azul, $azul2) 1;
+        }
+        75% {
+            border-image: linear-gradient(to bottom, $azul2, $azul3, $blancoTranslucido, $azul) 1;
+        }
+        100% {
+          border-image: linear-gradient(to bottom, $azul3, $azul, $azul2, $blancoTranslucido) 1;
+        }
+      } 
+}
+
+@mixin formularioCompra{
+    .datosPersonales{
+        margin: 20px;
+        @include bordeAnimado();
+        padding: 20px;
+        input{
+            margin: 10px;
+        }
+    }   
+}
+
+@mixin desplazamiento(){
+    animation: desplazamiento 1s ease-in-out;
+    @keyframes desplazamiento {
+        0% {
+            transform: translateY(300px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
+

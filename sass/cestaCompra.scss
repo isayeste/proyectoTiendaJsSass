@@ -1,0 +1,33 @@
+.containerCarrito{
+    @include distribucionCesta;
+    @include desplazamiento;
+    color: $azul3;
+    .listadoProductos{
+        .cajita{
+            @include bordeAnimado;
+            
+            .card-body{
+                color: $azul2;
+                
+                input{
+                    width: 40px;
+                    @include inputEstilizado;
+                }  
+            }
+        }
+        .btnSeguirComprando{
+            @include botonConHover;
+            @include inputEstilizado;
+        }
+    }
+
+    @include resumenPedido;
+    @include botonConHover;
+}
+
+
+@include responder-a(extrapequenio){
+    .containerCarrito{
+        margin: 10px;
+    }
+}

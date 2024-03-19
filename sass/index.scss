@@ -1,0 +1,23 @@
+@import 'partials/mixins';
+@import 'partials/variables';
+@import 'partials/breakpoint';
+@import 'header';
+@import 'main';
+@import 'footer';
+@import 'descriProd.scss';
+@import 'cestaCompra.scss';
+@import 'formularioPedido.scss';
+@import 'ventanaModal.scss';
+@import 'contacto.scss';
+
+
+
+
+.containerr{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 2fr 6fr 1fr;
+    position: relative;
+    z-index: 1;
+    font-family: "Roboto", sans-serif;
+}

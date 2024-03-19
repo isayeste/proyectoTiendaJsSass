@@ -1,0 +1,54 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 20, 20, 0.5);
+    
+    .contenido-modal {
+        position: relative;
+        background: $blancoTranslucido;
+        background: radial-gradient(circle, $blancoTranslucido 0%, $transparente 100%);
+        color:  $azulTranslucido;
+        margin: auto;
+        padding: 20px;
+        width: 60%;
+        -webkit-animation-name: animarsuperior;
+        -webkit-animation-duration: 0.5s;
+        animation-name: animarsuperior;
+        animation-duration: 0.5s;
+        .cerrarModal{
+            display: grid;
+            justify-items: end;
+            @include botonConHover;
+            a{
+                border-radius: 2px;
+                width: 150px;
+            }
+            
+        }
+        .contModal{
+            display: grid;
+            @include ponerEnCentro;
+        }
+    }
+
+}
+
+
+/* Animación */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animarsuperior {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+// -----

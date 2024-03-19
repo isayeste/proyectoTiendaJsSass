@@ -1,0 +1,98 @@
+@use 'partials/_variables.scss';
+@use 'partials/_mixins.scss';  
+
+.header{
+    height: 100px;
+    background-color: $azulTranslucido;
+    display: flex;
+    @include ponerEnCentro;
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    .header1{
+        display: grid;
+        grid-template-columns: 1fr 10fr;
+        width: 100%;
+        margin: 20px;
+        @include ponerEnCentro;
+                    li{
+                        list-style: none;
+                    }
+                    a{
+                        text-decoration: none;
+                        color: $blancoTranslucido;
+                    }
+                    a:hover{
+                        color: $azul;
+                    }
+        .logo{
+            img{
+                width: 80px;
+            }
+        }
+        .contHeader{
+            display: flex;
+            @include ponerEnCentro;
+            .hamburguesa{
+                display: none;
+            }
+            .categorias{
+                ul{
+                    display: flex;
+                    gap: 30px;
+                }
+            }  
+        }  
+    }
+}
+
+@include responder-a(mediano){
+    .header{
+        height: auto;
+        .header1{
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: start;
+            align-content: space-between;
+            text-align: end;
+            
+            .contHeader{
+                width: 100%;
+                display: flex;
+                flex-flow: column wrap;
+                justify-self: end;
+                align-items: end;
+                .hamburguesa{
+                    display: block;
+                    align-self: end;
+                    padding: 20px;
+                    .material-symbols-outlined{
+                        font-size: 30px;
+                    }
+                }
+                .categorias{
+                    display: none;
+                    align-items: end;
+                    
+                    ul{
+                        display: flex;
+                        flex-flow: column wrap;
+                        gap: 10px;
+                        animation: deslizarMenu 1s ease;
+                    }
+                    @keyframes deslizarMenu {
+                        from {
+                            transform: translateY(30px);
+                        }
+                        to {
+                            transform: translateY(0);
+                        }
+                    }
+                }  
+                .categorias.active{
+                    display: block;
+                }
+            }  
+        }
+    }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Proyecto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="containerr">
+        <header class="header">
+            <div class="header1">
+                <div class="logo"><a href="index.html"><img src="imagenes/logo3.png" alt=""></a></div>
+                    <div class="contHeader">
+                        <div class="hamburguesa" id="hamburguesa">
+                            <a href="#">
+                                <div><span class="material-symbols-outlined">menu</span></div>
+                            </a>
+                        </div>
+                        <div class="categorias">
+                            <ul>
+                                <li><a href="index.html">INICIO</a></li>
+                                <li><a href="anillos.html">ANILLOS</a></li>
+                                <li><a href="collares.html">COLLARES</a></li>
+                                <li><a href="pulseras.html">PULSERAS</a></li>
+                                <li><a href="pendientes.html">PENDIENTES</a></li>
+                                <li><a href="contacto.html">CONTACTO</a></li>
+                                <li><a href="cestaCompra.html"><span class="material-symbols-outlined">shopping_bag</span><span id="contCarrito">0</span></a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="buscador">
+                <form id="formularioBusqueda">
+                    <div>
+                        <input class="buscaTexto" type="text" placeholder="Buscar" id="campoBusqueda" name="campoBusqueda" required>
+                        <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="contenedorBotonFiltro">
+                <button class="boton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">FILTRAR/ORDENAR  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-left" viewBox="0 0 16 16">
+                    <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                  </svg></button>
+            </div>
+            
+            
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="margin-top: 100px;">
+              <div class="offcanvas-header justify-content-end">
+                <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="contenedorFiltrosOrdenar">
+                    <div class="marca">
+                        <label for="pet-select"></label>
+                        <select name="marca" id="marca-select">
+                          <option value="">-Marca-</option>
+                        </select>
+                    </div>
+                    <div class="material">
+                        <label for="material"></label>
+                        <select name="material" id="material-select">
+                          <option value="">-Material-</option>
+                        </select>
+                    </div>
+                    <div class="precio">
+                        <label for="precio"></label>
+                        <span><span id="precioMenor"></span>€</span>
+                        <input type="range" class="inputPrecio" id="precio" name="precio" min="0" value="100" step="10" />
+                        <span><span id="precioMayor"></span>€</span>
+                    </div>
+                    <div class="ordenar">
+                        <label for="ordena-select">Ordenar:</label>
+                        <select name="ordena" id="ordena-select">
+                          <option value="pBajo">Precio más Bajo</option>
+                          <option value="pAlto">Precio más Alto</option>
+                          <option value="nombreA">Nombre A-Z</option>
+                          <option value="nombreZ">Nombre Z-A</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+                <h1>Nuestros Pendientes</h1>
+                <!--  -->
+
+                <div id="productos" class="contenedorTarjetas"></div>
+                <!--  -->
+            </div>
+            <!-- Contenedor para la paginación -->
+            <div class="contP">
+                <div id="navPaginacion"></div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer1">
+                <div class="fUno">
+                    <li><a href="#">Guía de Tallas de Anillos</a></li>
+                    <li><a href="#">Guía de Tallas de Collares</a></li>
+                    <li><a href="#">Guía de Tallas de Pulseras</a></li>
+                    <li><a href="#">Guía de Tallas de Pendientes</a></li>
+                </div>
+                <div class="fUno">
+                    <li><a href="#">Contacta con Nosotros</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Cambios y Devoluciones</a></li>
+                    <li><a href="#">Envíos y Entrega</a></li>
+                </div>
+                <div class="fUno">
+                    <li><a href="#">Politica de Privacidad</a></li>
+                    <li><a href="#">Condiciones de Venta</a></li>
+                    <li><a href="#">Proteccion de Datos</a></li>
+                    <li><a href="#">Uso Aceptable</a></li>
+                </div>
+                <div class="fUno">
+                    <li><a href="#">Distribuidores Oficiales</a></li>
+                    <li><a href="#">Descuentos Especiales</a></li>
+                    <li><a href="#">Seguimiento de mi Pedido</a></li>
+                    <li><a href="#">Pago a Plazos</a></li>
+                </div>
+            </div>
+            <div class="footer2">
+                <p>Isabel Apolonia Yeste Sánchez</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script type="module" src="js/pendientes.js"></script>
+    <script type="module" src="js/filtros.js"></script>
+    <script src="/js/funcionesBuscador.js"></script>
+    <script type="module" src="js/feedbackCarrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.footer {
+    display: grid;
+    @include ponerEnCentro;
+    background-color: black;
+    padding: $paddingDefecto;
+
+    .footer1 {
+        text-align: justify;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        list-style: none;
+        @include enlacesConHover;
+
+        @include responder-a(extragrande) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include responder-a(mediano) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer2 {
+        padding-top: $paddingDefecto;
+        color: $blancoTranslucido;
+    }
+}
+  

@@ -1,0 +1,112 @@
+.contenedorArticulo{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include ponerEnCentro;
+    margin: 100px;
+    .fotoDescripProd{ 
+        .fotoGrande{
+            img{
+                cursor: pointer;
+                width: 300px;
+                transition: transform 0.8s linear;
+            }
+            img:hover{
+                transform: scale(1.5);
+                @include bordeAnimado;
+            }
+            
+        }
+        
+        .fotosPequenias{
+            img{
+                cursor: pointer;
+                width: 150px;
+            }
+            img:hover{
+                @include bordeAnimado;
+            }
+        }
+        
+    }
+
+    .textDescripProd{
+        .texto{
+            color: $azul3;
+            h1{
+                color: $azul2;
+            }
+            div{
+                display: grid;
+                height: 40px;
+                @include botonConHover;
+            }
+        }
+        
+    }
+}
+
+// -----------------------------------------------------------------
+@include responder-a(extragrande) {
+    .contenedorArticulo{
+        margin: 0;
+        .fotoDescripProd{
+            .fotoGrande{
+                img:hover{
+                    transform: scale(1.1);
+                }
+                
+            }
+        }
+    }
+    
+}
+
+@include responder-a(mediano){
+    .contenedorArticulo{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 5px;
+        .fotoDescripProd{ 
+            .fotoGrande{
+                img:hover{
+                    transform: scale(1.1);
+                }
+            }
+            .fotosPequenias{
+                img{
+                    width: 150px;
+                }
+            } 
+        }
+        .textDescripProd{
+            grid-row: 1/2;
+        }
+    }
+}
+
+@include responder-a(muypequenio){
+    .contenedorArticulo{
+        .fotoDescripProd{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            .fotoGrande{
+                img{
+                    width: 140px;
+                }
+                img:hover{
+                    transform: scale(1.5);
+                }  
+            }
+            .fotosPequenias{
+                display: grid;
+                grid-template-rows: repeat(2, 1fr);
+                img{
+                    width: 70px;
+                }
+            }
+        }
+    }
+}
+    
+    

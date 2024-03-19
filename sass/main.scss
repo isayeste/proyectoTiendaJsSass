@@ -1,0 +1,278 @@
+@use 'partials/_variables.scss';
+@use 'partials/_mixins.scss'; 
+@use 'partials/_breakpoint.scss';
+
+.main{
+    @include desplazamiento;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    .contenedorBotonFiltro{
+        margin-top: 20px;
+        @include botonConHover;  
+    }
+    .contenedorFiltrosOrdenar{
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        @include bordeAnimado;
+        padding: 20px;
+        height: 100%;
+        @include estiloLetraMenu;
+        select{
+            padding: 5px;
+            border: 1px solid $azul3;
+            border-radius: 4px;
+            
+        }
+        select:hover{
+            background-color: $hoverBoton;
+        }
+        
+        input[type="range"] {
+            appearance: none;
+            width: 50%;
+            height: 3px;
+            border-radius: 2px;
+            background: $azul3;
+            margin: 10px 0;
+        }
+          
+        input[type="range"]:hover {
+            background: $azul;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 13px; 
+            height: 13px;
+            background: $azul3;
+            border-radius: 50%; 
+        }      
+    }
+    .buscador{
+        padding-top: 50px;
+        display: grid;
+        align-items: center;
+        justify-items: end;
+        div{
+            display: flex;
+            align-items: center;
+            
+            .buscaTexto{
+                width: 500px;
+                height: 50px;
+                border: none;
+                border-bottom: 2px solid $azul2;
+            }
+            .buscaTexto:focus{
+                outline: none;
+            }
+            
+            .buscaTexto::placeholder{
+                color: $azul2;
+                @include estiloLetraMenu;
+            }
+            button{
+                color: $azul2;
+                border: none;
+                border-radius: 5px;
+                background-color: $transparente;
+            }
+            button:hover{
+                color: $azul;
+                transform: scale(1.1);
+            }
+            
+        }
+        
+    }
+    .buscadorIndex{
+        
+        div{
+            margin: 10px 0 10px 10px;
+         .buscaTexto{
+             width: 500px;
+         }
+        }
+     }
+    
+    
+    .product{
+        display: grid;
+        @include ponerEnCentro;
+        padding: 20px;
+        h1{
+            color: $azul2;
+        }
+        .contenedorTarjetas{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-left: 200px;
+            margin-right: 200px;
+            .tarjeta{
+                min-width: 100px;
+                
+                .tarjetaImgTop{
+                    width: 100%; 
+                }
+                .tarjetaCuerpo{
+                    background-color: $azulTranslucido;
+                    height: 100px;
+                    color: $blancoTranslucido;
+                    padding: 5px;
+                    @include estiloLetraMenu;
+                    
+                }
+            }
+            .tarjeta:hover{
+                cursor: pointer;
+                animation: rebote 1s ease;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+
+            }
+            @keyframes rebote {
+                0% {
+                    transform: translateY(0);
+                }
+                40%{
+                    transform: translateY(-20px);
+                }
+                60% {
+                    transform: translateY(-10px);
+                }
+                60% {
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+    .contP{
+        margin: $paddingDefecto;
+        .pagination .page-item{
+            margin-right: 5px;
+        }
+        .pagination .page-link{
+            color: $azul2;
+            border: none;
+        }
+        .pagination .page-item.active .page-link{
+            background-color: $azulTranslucido;
+            color: $blancoTranslucido;
+        }
+        .pagination .page-item.disabled .page-link{
+            color: rgb(142, 142, 142);
+            background-color: white;
+        }
+        .pagination .page-link:hover{
+            background-color: $hoverBoton;
+        }
+    }
+}
+
+
+// -----------------------------------------------------------------------------------------------------------
+@include responder-a(extragrande) {
+    .main{
+        margin-left: 90px;
+        margin-right: 90px;
+
+        .product {
+            .contenedorTarjetas {
+                grid-template-columns: repeat(2, 1fr);
+                .tarjeta {
+                    .tarjetaCuerpo {
+                        height: 100px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+@include responder-a(grande){
+    .main{
+        margin-left: 10px;
+        margin-right: 10px;
+        
+        .contenedorTarjetas{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+    }
+}
+@include responder-a(mediano){
+    .main{
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        
+        .product{
+            
+            .contenedorTarjetas{
+                margin: 0;
+                grid-template-columns: 1fr;
+            }
+        }
+        
+    }
+}
+@include responder-a(pequeno){
+    .main{
+        .product{
+            padding: 0px;
+            .contenedorTarjetas{
+                width: 200px;
+                padding: 0;
+            }
+        }
+        .buscador{
+            padding-top: 50px;
+            display: grid;
+            align-items: center;
+            justify-items: end;
+            div{
+                display: flex;
+                align-items: center;
+                
+                .buscaTexto{
+                    width: 200px;
+                }
+            }
+        }
+        .buscadorIndex{
+            
+            div{
+                margin: 10px 0 10px 10px;
+                .buscaTexto{
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+
+@include responder-a(muypequenio){
+    .main{
+        margin-top: 20px;
+        .buscador{
+            align-items: center;
+            justify-items: end;
+            width: 20px;
+            margin: 10px 0 10px 0;
+            div{
+                display: flex;
+                align-items: center; 
+            }
+        }
+        margin-left: 20px;
+        margin-right: 20px;
+        .product{
+            .contenedorTarjetas{
+                grid-template-columns: 1fr;
+            }
+        }
+        
+    }
+}

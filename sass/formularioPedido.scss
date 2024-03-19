@@ -1,0 +1,63 @@
+.containerFormularioPedido{
+    @include distribucionCesta;
+    @include desplazamiento;
+    .formulario{
+        @include inputEstilizado;
+        .error{
+            color: red;
+            font-size: 15px;
+            font-style: italic;
+        }
+        @include formularioCompra;
+        .datosPersonales{
+            div{
+                input{
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid $azul3;
+                }
+                #nombre, #apellidos, #calle, #ciudad, #pais, #email, #nombreTarjeta{
+                    width: 400px;
+                }
+                #cp{
+                    width: 60px;
+                }
+                #telefono{
+                    width: 90px;
+                }
+                #nTarjeta{
+                    width: 150px;
+                }
+                #codSeguridad{
+                    width: 40px;
+                }
+            }
+            @include responder-a(mediano){
+                div{
+                    #nombre, #apellidos, #calle, #ciudad, #pais, #email, #nombreTarjeta{
+                        width: auto;
+                    }
+                    #nTarjeta{
+                        width: auto;
+                    }
+                }
+            }
+        }
+        .contenedorBoton{
+            display: grid;
+            height: 45px;
+        }
+    }
+    @include resumenPedido;
+    @include botonConHover;
+
+}
+
+@include responder-a(extragrande){
+    .containerFormularioPedido{
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+
+
